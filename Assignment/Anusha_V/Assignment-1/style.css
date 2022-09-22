@@ -1,0 +1,101 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.profile_container{
+    max-width: 100%;
+    height:450px;
+    background-color: black;
+    color:white;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.profile_description{
+    justify-self: start;
+}
+
+.profile_name{
+    font-size: 3em;
+}
+
+.profile_designation{
+    font-size: 1.5em;
+}
+
+.profile_social_media{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.profile_social_media a i{
+    font-size: 2em;
+}
+i{
+    color:white;
+}
+/*mediaquery*/
+@media all and (max-width: 935px){
+    .profile_container{
+        max-width: 100%;
+        display:grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-items: center;
+        padding:0.5em;
+    }
+    .profile_description{
+        justify-self: center;
+    }
+}
+
+
+.about_me_container{
+  
+    max-width: 100%;
+  
+    padding:30px;
+    display:grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+   
+}
+.about_me_container p{
+    text-align: justify;
+}
+
+.contact_container{
+    max-width: 100%;
+   padding:30px;
+    background-color: black;
+    color:white;
+    display:grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.contact_container div button{
+    padding:10px;
+    border-radius: 5px;
+}
+
+
+.contact_container div button a{
+    text-decoration: none;
+
+}
+/*mediaquery*/
+@media all and (max-width: 234px){
+    .contact_description{
+            display:grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            justify-items: center;
+    }
+}
