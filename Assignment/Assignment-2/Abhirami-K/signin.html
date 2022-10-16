@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Signin page</title>
+{% endblock%}
+
+
+{% block body %}
+<div class="container">
+    <h1>Welcome to Sign In page</h1>
+
+
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Email</label>
+        <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Enter your Email">
+    </div>
+
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Password</label>
+        <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter Password"></div>
+
+    <input class="btn btn-primary" type="button" value="Sign In">
+    
+    <input class="btn btn-primary" type="button" value="Don't have an account, Sign Up">
+
+
+  
+</div>
+
+    {% endblock%}
+
