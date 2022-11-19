@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital</title>
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+<body>
+    <div class="log_in_section">
+        <div class="log_in_container">
+            <h2>Donor Request form</h2>
+            <h3>(After filling the request form, we will connect you with the right donor)</h3>
+            <div class="log_in_form">
+                <form action="/request_plasma" method="POST">
+                    <label>Hospital Name</label>
+                    <input type="text" name="hospital_name" placeholder="Enter your Hospital name">
+
+                    <label>Hospital Phone Number</label>
+                    <input type="text" name="hospital_contact_number" placeholder="Enter Hospital Phone Number">
+
+                    <label>Patient Name</label>
+                    <input type="text" name="patient_name" placeholder="Enter the patient Name">
+
+                    <label>Patient Age</label>
+                    <input type="text" name="patient_age" placeholder="Enter the patient Age">
+
+                    <label>Patient Blood Group</label>
+                    <input type="text" name="patient_blood_group" placeholder="Enter the patient Blood Group">
+
+
+                    <label>Cause of requesting plasma</label>
+                    <input type="text" name="cause_of_plasma" placeholder="Cause of requesting plasma">
+
+                    <label>Hospital Address</label>
+                    <input type="text" name="hospital_address" placeholder="Enter your Hospital address">
+
+                    <label>Hospital City</label>
+                    <input type="text" name="hospital_city" placeholder="Enter your Hospital city">
+
+                    <label> Hospital State</label>
+                    <input type="text" name="hospital_state" placeholder="Enter your Hospital state">
+
+                    <label>Hospital Email</label>
+                    <input type="email" name="hospital_email" placeholder="Enter Hospital email id">
+
+                 
+                    <input type="submit" value="Request" class="btn btn-success">    
+                   
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
