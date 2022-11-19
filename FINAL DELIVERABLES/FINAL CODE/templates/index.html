@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plasma Donor Application</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <!--bootstrap files starts-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!--bootstrap code ends-->
+   <style>
+    
+            
+    .custom-toggler.navbar-toggler {
+      
+              border:transparent;
+              
+          }
+         
+        
+            
+          .custom-toggler .navbar-toggler-icon {
+              background-image: url('https://anushav.s3.jp-tok.cloud-object-storage.appdomain.cloud/menu_icon.svg');
+             
+          }
+          .navbar-nav {
+              margin-left: auto;
+          }
+          .nav-item{
+            text-decoration: none;
+            color:#E85A4F;
+            
+            
+          }
+          .nav-item:hover{
+            text-decoration: none;
+           
+            color:black;
+            
+          }
+          .nav-item:visited{
+            text-decoration: none;
+           
+          
+          }
+  </style>
 
+      <script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "b5e67d39-9862-4f40-9dc5-020482814f3a", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "c084d960-061d-4eb3-bad3-3745a05f6c2a", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+
+  </script>
+</head>
+<body>
+    
+<!--navbar section starts-->
+<div class="m-0" style=" background-color: rgba(234, 231, 220,40%);">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand" style="margin-left:50px;">
+                <img src="https://anushav.s3.jp-tok.cloud-object-storage.appdomain.cloud/Plasma_logo.png" width="100" height="80" alt="CoolBrand">
+                
+            </a>
+            <button type="button" class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav" style="font-weight: 400;">
+                    <a href="{{url_for('hello_world')}}" class="nav-item nav-link active" style="font-size: 20px;">Home</a>
+                    <a href="{{url_for('login')}}" class="nav-item nav-link" style="font-size: 20px;">Log in</a>
+                   
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!--navbar section ends-->
+<h3 style="text-align: center; font-weight: 600;">Plasma Donor Application</h3>
+<!--What is plasma donation section starts-->
+
+<div class="what_is_plasma_donation_section">
+    <div class="what_is_plasma_donation">
+        <h2>What is plasma Donation?</h2>
+        <p>In a plasma-only donation, the liquid portion of the donor’s blood is separated from the cells. Blood is drawn from one arm and sent through a high-tech machine that collects the plasma. The donor’s red blood cells and platelets are then returned to the donor along with some saline. The process is safe and only takes a few minutes longer than donating whole blood.
+
+            Donated plasma is frozen within 24 hours of being donated to preserve its valuable clotting factors. It can be stored for up to one year and thawed for transfusion to a patient when needed.
+        </p>
+        <button class="button-30"><a href="{{url_for('login')}}">Donate Plasma through our application</a></button>
+    </div>
+</div>
+
+<!--What is plasma donation section ends-->
+
+<!--why there is a need of plasma section starts-->
+
+<div class="what_is_plasma_donation_section" style=" background-color: rgba(234, 231, 220,40%);">
+    <div class="what_is_plasma_donation">
+        <h2>Why there is a need of plasma donation?</h2>
+        <p>Plasma is beneficial to a wide variety of patients. Children and adults with cancer, including leukemia, need plasma transfusions. Other users are people undergoing liver transplants, bone marrow transplants, and severe burn patients. Clotting factors for hemophilia patients are made from donated plasma.
+
+            For example, patients with liver disease cannot make the substances necessary for blood clotting. Plasma donations provide these substances until the patient's own liver recovers, or until a liver transplant is performed. These patients can use two to six units of plasma per day.
+        </p>
+    </div>
+</div>
+
+<!--why there is a need of plasma section ends-->
+
+<!--eligibility check for plasma donors section starts-->
+
+<div class="what_is_plasma_donation_section">
+    <div class="what_is_plasma_donation" style="text-align: left;">
+        <h2>Eligibility check for plasma donors</h2>
+        
+            <ol>
+                <li>Plasma donors should be at least 18 years old</li>
+                <li> Plasma donors should weigh at least 110 pounds or 50 kilograms</li>
+                <li>Must pass a medical examination</li>
+                <li>Complete an extensive medical history screening</li>
+                <li>Test non-reactive for transmissible viruses including hepatitis and HIV</li>
+                <li>Follow a recommended diet including 50 to 80 grams of daily protein</li>
+            </ol>
+        
+    </div>
+</div>
+
+<!--eligibility check for plasma donors section starts-->
+
+
+
+
+
+</body>
+</html>
