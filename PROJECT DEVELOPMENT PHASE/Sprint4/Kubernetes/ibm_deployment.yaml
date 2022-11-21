@@ -15,8 +15,8 @@ spec:
 
     spec:
       containers:
-        - name: organ
-          image: jp.icr.io/donor/organ
+        - name: bala
+          image: jp.icr.io/aswini/bala
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
