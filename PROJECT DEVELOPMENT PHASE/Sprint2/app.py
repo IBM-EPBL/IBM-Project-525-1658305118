@@ -1,9 +1,11 @@
 from flask import Flask,render_template,url_for,session,redirect,request
-import ibm_db,re,sendgrid
+import re,sendgrid
 from sendgrid.helpers.mail import *
+import db
+from db import ibm_db
 app = Flask(__name__)
 app.secret_key="1123"
-conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=3883e7e4-18f5-4afe-be8c-fa31c41761d2.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=31498;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=btb13702;PWD=J90CGo4TOKPWkMFb",'','')
+conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=55fbc997-9266-4331-afd3-888b05e734c0.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT= 31929;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=hdr83116;PWD=Tbz8J811msiJ4U38",'','')
 # index page starts-----------------------------
 @app.route("/")
 def hello_world():
