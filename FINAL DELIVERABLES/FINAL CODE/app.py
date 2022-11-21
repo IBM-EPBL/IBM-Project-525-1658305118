@@ -1,9 +1,11 @@
 from flask import Flask,render_template,url_for,session,redirect,request
-import ibm_db,re,sendgrid
+import re,sendgrid
 from sendgrid.helpers.mail import *
+import db
+from db import ibm_db
 app = Flask(__name__)
 app.secret_key="1123"
-conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=3883e7e4-18f5-4afe-be8c-fa31c41761d2.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=31498;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=btb13702;PWD=J90CGo4TOKPWkMFb",'','')
+conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=55fbc997-9266-4331-afd3-888b05e734c0.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT= 31929;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=hdr83116;PWD=Tbz8J811msiJ4U38",'','')
 # index page starts-----------------------------
 @app.route("/")
 def hello_world():
@@ -108,7 +110,7 @@ def login_hospital():
         hospital_name = request.form['hospital_name']
         hospital_password = request.form['hospital_password']
         sql = "SELECT * FROM hospitals_details WHERE hospital_name =? AND hospital_password=?"
-        stmt = ibm_db.prepare(conn, sql)
+        stmt = ibm_db.prepare(db.conn, sql)
         ibm_db.bind_param(stmt,1,hospital_name)
         ibm_db.bind_param(stmt,2,hospital_password)
         ibm_db.execute(stmt)
@@ -140,7 +142,7 @@ def signup_hospital():
         hospital_email = request.form['hospital_email']
         hospital_password = request.form['hospital_password']
         sql = "SELECT * FROM hospitals_details WHERE hospital_name =?"
-        stmt = ibm_db.prepare(conn, sql)
+        stmt = ibm_db.prepare(db.conn, sql)
         ibm_db.bind_param(stmt,1,hospital_name)
         ibm_db.execute(stmt)
         account = ibm_db.fetch_assoc(stmt)
@@ -154,7 +156,7 @@ def signup_hospital():
         else:
             mailtest_hosp_registration(hospital_email)
             insert_sql = "INSERT INTO hospitals_details VALUES (?, ?, ?, ?,?,?,?,?)"
-            prep_stmt = ibm_db.prepare(conn, insert_sql)
+            prep_stmt = ibm_db.prepare(db.conn, insert_sql)
             ibm_db.bind_param(prep_stmt, 1, hospital_name)
             ibm_db.bind_param(prep_stmt, 2, hospital_date)
             ibm_db.bind_param(prep_stmt, 3, hospital_contact_number)
@@ -180,7 +182,7 @@ def signup_hospital():
 def donorlist():
     donors_details = []
     sql = "SELECT * FROM DONORS_DETAILS"
-    stmt = ibm_db.exec_immediate(conn, sql)
+    stmt = ibm_db.exec_immediate(db.conn, sql)
     dictionary = ibm_db.fetch_both(stmt)
     while dictionary != False:
         donors_details.append(dictionary)
@@ -208,7 +210,7 @@ def request_plasma():
         hospital_state = request.form['hospital_state']
         hospital_email = request.form['hospital_email']
         sql = "SELECT * FROM request_hospital_details WHERE hospital_name =?"
-        stmt = ibm_db.prepare(conn, sql)
+        stmt = ibm_db.prepare(db.conn, sql)
         ibm_db.bind_param(stmt,1,hospital_name)
         ibm_db.execute(stmt)
         account = ibm_db.fetch_assoc(stmt)
@@ -222,7 +224,7 @@ def request_plasma():
         else:
             mailtest_request_plasma(hospital_email)
             insert_sql = "INSERT INTO request_hospital_details VALUES (?, ?, ?, ?,?,?,?,?,?,?)"
-            prep_stmt = ibm_db.prepare(conn, insert_sql)
+            prep_stmt = ibm_db.prepare(db.conn, insert_sql)
             ibm_db.bind_param(prep_stmt, 1, hospital_name)
             ibm_db.bind_param(prep_stmt, 2, hospital_contact_number)
             ibm_db.bind_param(prep_stmt, 3, patient_name)
@@ -245,7 +247,7 @@ def request_plasma():
 # sendgrid integration
 #donor registration starts----------------------------------------
 def mailtest_registration(to_email):
-    sg = sendgrid.SendGridAPIClient(api_key= '' )
+    sg = sendgrid.SendGridAPIClient(api_key='')
     from_email = Email("itaswinic@gmail.com")
     subject = "Registered Successfull as a DONOR!"
     content = Content("text/plain", "You have successfully registered as donor. Please Login using your Username and Password to donate Plasma.")
@@ -293,5 +295,3 @@ def index():
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5000, debug=True)
-
-#http://169.51.203.254:30123/
