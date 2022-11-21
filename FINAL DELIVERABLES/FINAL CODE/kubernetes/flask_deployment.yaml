@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: page
-          image: balabharathi/donor
+          image: balabharathi/application
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
